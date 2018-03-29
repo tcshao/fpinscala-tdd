@@ -20,12 +20,11 @@ class DataStructuresSpec extends FunSpec with Matchers {
     }
 
     it("dropWhile should drop items that match the predicate") {
-      List.dropWhile(List(2, 4, 6, 8, 1, 3), ((x: Int) => x < 3)) should be(
-        List(4, 6, 8, 1, 3))
-    }
+      val list = List(2, 4, 6, 8, 1, 3)
+      List.dropWhile(list, ((x: Int) => x < 3)) should be(List(4, 6, 8, 1, 3))
 
-    it("init removed the last element") {
-      List.init(List(1, 23, 3, 5)) should be(List(1, 23, 3))
+      // negative case, nothing dropped
+      List.dropWhile(list, ((x: Int) => x > 10)) should be(list)
     }
 
     it("Can compute the Length") {
@@ -72,17 +71,20 @@ class DataStructuresSpec extends FunSpec with Matchers {
     it("we can filter") {
       // remove odds
       List.filter(List(2, 3, 5, 7, 1))(_ < 3) should be(List(2, 1))
-
-      List.filterViaFlatMap(List(2, 3, 5, 7, 1))(_ < 3) should be(List(2, 1))
     }
 
     it("we can flatMap") {
       List.flatMap(List(1, 2, 3))(i => List(i, i)) should be(
         List(1, 1, 2, 2, 3, 3))
+
+      List.filterViaFlatMap(List(2, 3, 5, 7, 1))(_ < 3) should be(List(2, 1))
+    }
+
+    it("we can add pairs") {
+      List.addPairs(List(1, 2, 3), List(4, 5, 6)) should be(List(5, 7, 9))
     }
 
     it("we can zip") {
-      List.addPairs(List(1, 2, 3), List(4, 5, 6)) should be(List(5, 7, 9))
 
       List.zipWith(List("One", "Two", "Three"), List(1, 2, 3))((_, _)) should be(
         List(("One", 1), ("Two", 2), ("Three", 3)))
