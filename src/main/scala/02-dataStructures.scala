@@ -51,49 +51,72 @@ object List { // `List` companion object. Contains functions for creating and wo
   def product2(ns: List[Double]) =
     foldRight(ns, 1.0)(_ * _) // `_ * _` is more concise notation for `(x,y) => x * y`; see sidebar
 
+  // EXERCISE 3.2 p. 35
   def tail[A](l: List[A]): List[A] = ???
 
+  // EXERCISE 3.3 p. 36
   def setHead[A](l: List[A], h: A): List[A] = ???
 
+  // EXERCISE 3.4 p. 36
   def drop[A](l: List[A], n: Int): List[A] = ???
 
+  // EXERCISE 3.5 p. 36
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = ???
 
+  // EXERCISE 3.5 p. 37
   def init[A](l: List[A]): List[A] = ???
 
+  // EXERCISE 3.9 p. 40 -> Compute using foldRight
   def length[A](l: List[A]): Int = ???
 
+  // EXERCISE 3.10 p. 40
   def foldLeft[A, B](l: List[A], z: B)(f: (B, A) => B): B = ???
 
+  // EXERCISE 3.11 p. 41
   def sumViaFold(l: List[Int]): Int = ???
 
   def productViaFold(l: List[Int]): Int = ???
 
   def lengthViaFold[A](l: List[A]): Int = ???
 
+  // EXERCISE 3.12 p. 41 -> write using a fold
   def reverse[A](l: List[A]): List[A] = ???
 
+  // EXERCISE 3.13 p. 41
   def foldLeftViaFoldRight[A, B](l: List[A], z: B)(f: (B, A) => B): B = ???
 
+  // EXERCISE 3.14 p. 41-> write using a fold
   def appendViaFold[A](l: List[A], m: List[A]): List[A] = ???
 
+  // EXERCISE 3.15 p. 41 -> try to write using functions already defined
   def concat[A](l: List[List[A]]): List[A] = ???
 
+  // EXERCISE 3.16 p. 42
   def mapPlusOne(l: List[Int]): List[Int] = ???
 
+  // EXERCISE 3.17 p. 42
   def mapDoubleToString(l: List[Double]): List[String] = ???
 
+  // EXERCISE 3.18 p. 42
   def map[A, B](l: List[A])(f: A => B): List[B] = ???
 
+  // EXERCISE 3.19 p. 42
   def filter[A](as: List[A])(f: A => Boolean): List[A] = ???
 
+  // EXERCISE 3.20 p. 42
   def flatMap[A, B](as: List[A])(f: A => List[B]): List[B] = ???
 
+  // EXERCISE 3.21 p. 42
   def filterViaFlatMap[A](as: List[A])(f: A => Boolean): List[A] = ???
 
+  // EXERCISE 3.22 p. 42
   def addPairs(l: List[Int], r: List[Int]): List[Int] = ???
 
+  // EXERCISE 3.23 p. 42
   def zipWith[A, B, C](l: List[A], r: List[B])(f: (A, B) => C): List[C] = ???
+
+  // EXERCISE 3.24
+  def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = ???
 }
 
 sealed trait Tree[+A]

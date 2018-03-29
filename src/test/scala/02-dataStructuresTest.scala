@@ -89,5 +89,22 @@ class DataStructuresSpec extends FunSpec with Matchers {
       List.zipWith(List("One", "Two", "Three"), List(1, 2, 3))((_, _)) should be(
         List(("One", 1), ("Two", 2), ("Three", 3)))
     }
+
+    it("Figuring out subsequences") {
+      val parent = List(1, 2, 3, 4)
+      val sub1 = List(1, 2)
+      val sub2 = List(2, 3)
+      val sub3 = List(4)
+
+      val notSub = List(3, 3, 4)
+      val alsoNotSub = List(3, 4, 56)
+
+      List.hasSubsequence(parent, sub1) should be(true)
+      List.hasSubsequence(parent, sub2) should be(true)
+      List.hasSubsequence(parent, sub3) should be(true)
+
+      List.hasSubsequence(parent, notSub) should be(false)
+      List.hasSubsequence(parent, alsoNotSub) should be(false)
+    }
   }
 }
