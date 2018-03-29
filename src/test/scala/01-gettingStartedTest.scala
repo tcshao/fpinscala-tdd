@@ -41,4 +41,16 @@ class GettingStartedSpec extends FunSpec with Matchers {
       uncurried(2, 2) should be(4)
     }
   }
+
+  describe("functions") {
+    it("Can be composed") {
+      val addTwo: Int => Int = (x: Int) => x + 4
+      val convertToString: Int => String = (x: Int) => x.toString
+
+      var resultingfunction =
+        PolymorphicFunctions.compose(convertToString, addTwo)
+
+      resultingfunction(10) should be("14")
+    }
+  }
 }
