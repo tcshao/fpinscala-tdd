@@ -13,10 +13,16 @@ class DataStructuresSpec extends FunSpec with Matchers {
 
     it("set head should replace the head") {
       List.setHead(List(1, 2, 3, 4), 5) should be(List(5, 2, 3, 4))
+
+      List.setHead(Nil: List[Int], 1) should be(List(1))
     }
 
     it("should drop the specified number of elements") {
       List.drop(List(1, 2, 3, 4, 5, 6, 7), 5) should be(List(6, 7))
+
+      List.drop(Nil: List[Int], 9) should be(Nil: List[Int])
+
+      List.drop(List(2, 3), 5) should be(Nil: List[Int])
     }
 
     it("dropWhile should drop items that match the predicate") {
