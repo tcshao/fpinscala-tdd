@@ -1,4 +1,5 @@
-package fpinscala.gettingstarted._
+package fpinscala.gettingstarted
+
 import org.scalatest._
 
 class GettingStartedSpec extends FunSpec with Matchers {
