@@ -63,9 +63,6 @@ object List { // `List` companion object. Contains functions for creating and wo
   // EXERCISE 3.5 p. 36
   def dropWhile[A](l: List[A], f: A => Boolean): List[A] = ???
 
-  // EXERCISE 3.5 p. 37
-  def init[A](l: List[A]): List[A] = ???
-
   // EXERCISE 3.9 p. 40 -> Compute using foldRight
   def length[A](l: List[A]): Int = ???
 
@@ -101,13 +98,13 @@ object List { // `List` companion object. Contains functions for creating and wo
   def map[A, B](l: List[A])(f: A => B): List[B] = ???
 
   // EXERCISE 3.19 p. 42
-  def filter[A](as: List[A])(f: A => Boolean): List[A] = ???
+  def filter[A](l: List[A])(f: A => Boolean): List[A] = ???
 
   // EXERCISE 3.20 p. 42
-  def flatMap[A, B](as: List[A])(f: A => List[B]): List[B] = ???
+  def flatMap[A, B](l: List[A])(f: A => List[B]): List[B] = ???
 
   // EXERCISE 3.21 p. 42
-  def filterViaFlatMap[A](as: List[A])(f: A => Boolean): List[A] = ???
+  def filterViaFlatMap[A](l: List[A])(f: A => Boolean): List[A] = ???
 
   // EXERCISE 3.22 p. 42
   def addPairs(l: List[Int], r: List[Int]): List[Int] = ???
@@ -118,9 +115,3 @@ object List { // `List` companion object. Contains functions for creating and wo
   // EXERCISE 3.24
   def hasSubsequence[A](sup: List[A], sub: List[A]): Boolean = ???
 }
-
-sealed trait Tree[+A]
-case class Leaf[A](value: A) extends Tree[A]
-case class Branch[A](left: Tree[A], right: Tree[A]) extends Tree[A]
-
-object Tree {}
