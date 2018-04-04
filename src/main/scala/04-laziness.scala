@@ -29,6 +29,8 @@ trait Stream[+A] {
 
   def forAll(p: A => Boolean): Boolean = ???
 
+  def takeWhileViaFoldRight(p: A => Boolean): Stream[A] = ???
+
   def headOption: Option[A] = ???
 
   // 5.7 map, filter, append, flatmap using foldRight. Part of the exercise is
@@ -37,8 +39,7 @@ trait Stream[+A] {
   def startsWith[B](s: Stream[B]): Boolean = ???
 }
 case object Empty extends Stream[Nothing]
-case class Cons[+A](h: () => A, t: () => Stream[A])
-    extends Stream[A]
+case class Cons[+A](h: () => A, t: () => Stream[A]) extends Stream[A]
 
 object Stream {
   def cons[A](hd: => A, tl: => Stream[A]): Stream[A] = {
@@ -54,7 +55,13 @@ object Stream {
     else cons(as.head, apply(as.tail: _*))
 
   val ones: Stream[Int] = Stream.cons(1, ones)
+
+  // 5.8
+  def constant[A](a: A): Stream[A] = ???
+
   def from(n: Int): Stream[Int] = ???
+
+  def fibsGenerator(curr: Int, next: Int): Stream[Int] = ???
 
   def unfold[A, S](z: S)(f: S => Option[(A, S)]): Stream[A] = ???
 }
